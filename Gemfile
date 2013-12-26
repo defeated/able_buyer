@@ -1,6 +1,8 @@
 ruby '2.1.0'
 source 'https://rubygems.org'
 
+# Facebook OAuth2 Strategy for OmniAuth
+gem 'omniauth-facebook', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.beta1'
