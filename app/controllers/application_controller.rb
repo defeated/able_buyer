@@ -9,14 +9,14 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= if id = session[:user_id]
+    @current_user ||= if id = session[:user]
       User.find_by id: id
     end
   end
 
   def current_user=(user)
     @current_user = user
-    session[:user_id] = user.to_param
+    session[:user] = user.to_param
   end
 
   def logged_in?
