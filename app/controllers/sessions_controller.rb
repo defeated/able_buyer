@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def create
     @user = User.for_omniauth auth_params
     self.current_user = @user

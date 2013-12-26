@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= if id = session[:user_id] then User.find id
+    @current_user ||= if id = session[:user_id] then
+      User.find id
+    end
   end
 
   def current_user=(user)
