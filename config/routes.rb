@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [ :get, :post ]
-  match '/logout', to: 'sessions#destroy', via: [ :get, :post ]
+  get '/logout', to: 'sessions#destroy'
+  get '/login', to: redirect('/auth/facebook')
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     return if current_user
-    redirect_to '/auth/facebook'
+    redirect_to login_path
   end
 
   def current_user
