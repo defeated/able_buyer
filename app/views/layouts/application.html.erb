@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <div>
+    <%= image_tag current_user.image, size: '32x32' %>
+    Welcome back, <%= current_user.first_name %>
+  </div>
+<% end %>
+
 <%= yield %>
 
 </body>
