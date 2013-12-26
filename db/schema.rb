@@ -14,12 +14,14 @@
 ActiveRecord::Schema.define(version: 20131226011652) do
 
   create_table "users", force: true do |t|
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "image"
-    t.string "provider"
-    t.string "uid"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "image"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

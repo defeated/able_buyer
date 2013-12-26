@@ -9,6 +9,8 @@ class CreateUser < ActiveRecord::Migration
       t.string :provider
       t.string :uid
 
+      t.timestamps
+
       t.index [ :provider, :uid ], unique: true
     end
   end
