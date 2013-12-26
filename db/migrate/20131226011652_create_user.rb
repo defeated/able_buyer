@@ -4,7 +4,7 @@ class CreateUser < ActiveRecord::Migration
       t.string :email
       t.string :first_name
       t.string :last_name
-      t.string :avatar
+      t.string :image
 
       t.string :provider
       t.string :uid

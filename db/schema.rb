@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20131226011652) do
     t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.string "avatar"
+    t.string "image"
     t.string "provider"
     t.string "uid"
   end
