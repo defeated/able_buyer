@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-    @user = User.from_omniauth auth_params
-    self.current_user = @user
+    self.current_user = User.from_omniauth auth_params
     redirect_to root_path, notice: 'Successfully logged in!'
   end
 
@@ -14,6 +13,6 @@ class SessionsController < ApplicationController
 
   private
     def auth_params
-      env['omniauth.auth']
+      ActionController::Parameters.new( env['omniauth.auth'] ).permit!
     end
 end

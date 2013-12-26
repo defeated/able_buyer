@@ -1,16 +1,10 @@
 class User < ActiveRecord::Base
   def self.from_omniauth(auth)
-    for_omniauth(auth) || via_omniauth(auth)
-  end
+    key   = auth.slice(:provider, :uid)
+    attrs = auth[:info].slice(:email, :first_name, :last_name, :image)
 
-  def self.for_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first
-  end
-
-  def self.via_omniauth(auth)
-    info  = auth[:info]
-    attrs = {}.merge(auth.slice(:provider, :uid))
-              .merge(info.slice(:email, :first_name, :last_name, :image))
-    create! attrs
+    find_or_initialize_by(key).tap do |user|
+      user.update! attrs
+    end
   end
 end
