@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Successfully logged in!'
   end
 
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path, notice: 'You have logged out.'
+  end
+
   private
     def auth_params
       env['omniauth.auth']
