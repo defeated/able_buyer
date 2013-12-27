@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227025758) do
+ActiveRecord::Schema.define(version: 20131227043242) do
 
   create_table "houses", force: true do |t|
-    t.string   "address",    limit: 500, null: false
+    t.string   "address",      limit: 500,             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "offers_count",             default: 0, null: false
   end
 
   add_index "houses", ["address"], name: "index_houses_on_address", unique: true
