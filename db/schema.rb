@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226011652) do
+ActiveRecord::Schema.define(version: 20131226210140) do
+
+  create_table "houses", force: true do |t|
+    t.string   "address",    limit: 500, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "houses", ["address"], name: "index_houses_on_address", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email"
