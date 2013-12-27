@@ -1,6 +1,12 @@
-.DS_Store
+# Ignore application files containing sensitive information
 /config/database.yml
 /config/secrets.yml
+
+# Ignore CTags index files
+tags
+.tags
+.tags_sorted_by_file
+.gemtags
 
 # Ignore bundler config.
 /.bundle
@@ -12,3 +18,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.DS_Store
