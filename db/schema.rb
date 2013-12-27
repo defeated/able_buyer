@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226210140) do
+ActiveRecord::Schema.define(version: 20131227025758) do
 
   create_table "houses", force: true do |t|
     t.string   "address",    limit: 500, null: false
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20131226210140) do
   end
 
   add_index "houses", ["address"], name: "index_houses_on_address", unique: true
+
+  create_table "offers", force: true do |t|
+    t.integer  "house_id",                default: 0, null: false
+    t.integer  "user_id",                 default: 0, null: false
+    t.integer  "amount",                  default: 0, null: false
+    t.datetime "offered_at",                          null: false
+    t.datetime "replied_at",                          null: false
+    t.string   "reason",     limit: 1024,             null: false
+    t.string   "mls"
+    t.string   "agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "offers", ["house_id", "user_id"], name: "index_offers_on_house_id_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email"
