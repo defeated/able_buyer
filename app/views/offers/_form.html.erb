@@ -1,0 +1,58 @@
+<%= form_for @offer do |f| %>
+  <fieldset>
+    <legend>House (required)</legend>
+
+    <%= render partial: 'shared/error_messages', object: @house %>
+
+    <%= fields_for @house do |h| %>
+      <%= h.label :address %>
+      <%= h.text_area :address %>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Offer (required)</legend>
+
+    <%= render partial: 'shared/error_messages', object: @offer %>
+
+    <div>
+      <%= f.label :amount %>
+      <%= f.number_field :amount %>
+    </div>
+
+    <div>
+      <%= f.label :offered_at %>
+      <%= f.date_select :offered_at, order: [ :month, :day, :year ],
+        include_blank: true, end_year: Time.current.year %>
+    </div>
+
+    <div>
+      <%= f.label :replied_at %>
+      <%= f.date_select :replied_at, order: [ :month, :day, :year ],
+        include_blank: true, end_year: Time.current.year %>
+    </div>
+
+    <div>
+      <%= f.label :reason %>
+      <%= f.text_area :reason %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Offer (optional)</legend>
+
+    <div>
+      <%= f.label :mls %>
+      <%= f.text_field :mls %>
+    </div>
+
+    <div>
+      <%= f.label :agent %>
+      <%= f.text_field :agent %>
+    </div>
+  </fieldset>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

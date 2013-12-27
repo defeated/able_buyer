@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :offers, dependent: :destroy
+
   def self.from_omniauth(auth)
     key   = auth.slice(:provider, :uid)
     attrs = auth[:info].slice(:email, :first_name, :last_name, :image)
