@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'offers#index'
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [ :get, :post ]
   get '/logout', to: 'sessions#destroy'
   get '/login', to: redirect('/auth/facebook')
+
+  resources :offers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
