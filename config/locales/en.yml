@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      offer:
+        reason: 'What was their reason?'
+        mls: 'MLS #'
+        agent: 'Agent name'
