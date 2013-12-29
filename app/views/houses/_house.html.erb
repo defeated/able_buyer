@@ -1,0 +1,14 @@
+<%= div_for house do %>
+  <p class="address">
+    <%= house.address %>
+  </p>
+
+  <dl>
+    <dt>Added</dt>
+    <dd><%= time_ago_in_words house.created_at %> ago</dd>
+    <dt>Activity</dt>
+    <dd><%= time_ago_in_words house.updated_at %> ago</dd>
+    <dt>Offers</dt>
+    <dd><%= house.offers.size %></dd>
+  </dl>
+<% end %>

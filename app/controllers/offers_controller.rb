@@ -1,9 +1,10 @@
 class OffersController < ApplicationController
   respond_to :html
 
-  before_action :authenticate!, except: :index
+  before_action :authenticate!, except: [ :index ]
 
   def index
+    @houses = House.all
   end
 
   def new

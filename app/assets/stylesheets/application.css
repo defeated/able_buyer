@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+.house {
+  border: 1px solid #ccc;
+  margin-bottom: 1em;
+}
+
+.house .address {
+  font-weight: bold;
+}
+
+.house dd, .house dt {
+  margin: 0;
+  display: inline;
+}
+
+.house dt {
+  color: #999;
+}
