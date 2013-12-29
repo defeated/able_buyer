@@ -4,7 +4,8 @@ class OffersController < ApplicationController
   before_action :authenticate!, except: [ :index ]
 
   def index
-    @houses = House.all
+    skope = logged_in? ? House.includes(offers: :user) : House.all
+    @houses = skope.where.not(offers_count: 0).order(updated_at: :desc)
   end
 
   def new

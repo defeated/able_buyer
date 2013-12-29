@@ -11,4 +11,10 @@
     <dt>Offers</dt>
     <dd><%= house.offers.size %></dd>
   </dl>
+
+  <% if logged_in? %>
+    <ul>
+      <%= render house.offers %>
+    </ul>
+  <% end %>
 <% end %>

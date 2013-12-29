@@ -1,0 +1,24 @@
+<li class="offer">
+  <div>
+    From <%= offer.user.first_name %> <%= offer.user.last_name[0] %>.,
+    <%= time_ago_in_words offer.created_at %> ago
+  </div>
+
+  <div>
+    MLS # <%= offer.mls.present? ? offer.mls : 'n/a' %><br />
+    Agent <%= offer.agent.present? ? offer.agent : 'n/a' %>
+  </div>
+
+  <div>
+    Amount <%= number_to_currency offer.amount %>,
+    <%= time_ago_in_words offer.offered_at %> ago
+  </div>
+
+  <div>
+    Replied <%= time_ago_in_words offer.replied_at %> ago
+  </div>
+
+  <blockquote>
+    <%= offer.reason %>
+  </blockquote>
+</li>
