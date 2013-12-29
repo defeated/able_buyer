@@ -1,6 +1,6 @@
 <li class="offer">
   <div>
-    From <%= offer.user.first_name %> <%= offer.user.last_name[0] %>.,
+    From <%= offer.user.name.short %>,
     <%= time_ago_in_words offer.created_at %> ago
   </div>
 
